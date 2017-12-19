@@ -64,24 +64,73 @@ var none = [false, null, NaN, 0, ""];
 },
 
   // returns a slice of array with n elements dropped from the beignning
-  drop: function(){
+  drop: function dropUm(array, number){
 
-  },
+  if(number === undefined){
+    var noInput = array.slice(1);
+    return noInput;
+  }
+  if(number === 0){
+    var resultZero = array.slice(number);
+    return resultZero;
+  }if(number > 0){
+    var result = array.slice(number);
+    return result;
+  }
+},
 
   // returns a slice of array with n elements dropped from the end
-  dropRight: function() {
+  dropRight: function dropUm(array, number){
 
-  },
+  var arrReverse = array.reverse();
+
+  if(number === undefined){
+    var noInput = arrReverse.slice(1);
+    var revert1 = noInput.reverse();
+    return noInput;
+  }
+  if(number === 0){
+    var resultZero = arrReverse.slice(number);
+    var rever2 = resultZero.reverse();
+    return resultZero;
+  }if(number > 0){
+    var result = arrReverse.slice(number);
+    var revert2 = result.reverse();
+    return result;
+  }
+},
 
   // creates a slice of an array with n elements taken from the beginning
-  take: function () {
+  take: function takeUm(array,number){
 
-  },
+    if(number > array.length){
+      //console.log(array)
+      return array;
+    }if(number === undefined){
+      array.splice(1);
+      //console.log(array)
+      return array;
+    }else{
+      array.splice(number);
+      //console.log(array)
+      return array;
+    }
+},
 
   // creates a slice of an array with n elements taken from the end
-  takeRight: function () {
+  takeRight: function takeRightt(array,number){
 
-  },
+  if(number > 0){
+    var newArr = array.splice(number - 1);
+    return newArr;
+  }if(number === undefined){
+    var noInput = array.slice(array.length - 1);
+    return noInput;
+  }if(number === 0){
+    var emptySet = [];
+    return emptySet;
+  }
+},
 
   // fills elements of array with specified value from the start index
   // up to but not including the end index
