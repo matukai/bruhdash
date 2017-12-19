@@ -10,39 +10,58 @@ var global = window || GLOBAL;
 global.bruhdash = {
 
   // returns the first element of an array
-  first: function () {
-      
+  first: function (array) {
+    return  array[0];
   },
 
   // returns the last element of an array
-  last: function () {
-
+  last: function (array) {
+    return array[array.length - 1];
   },
 
   // returns the index of the first matching element from left to right
-  indexOf: function () {
-
+  indexOf: function (arr, val) {
+    for (var i = 0; i<arr.length; i++){
+      if(arr[i] === val){
+        return i;
+          }
+        }
+        return -1;
   },
 
-  // returns the index of the first matching element from right to left
-  lastIndexOf: function () {
-
+  // returns the index of te first matching element from right to left
+  lastIndexOf: function (array,value) {
+    for(var i = array.length -1; i >= 0; i--){
+      if(array[i] === value){
+        return i;
+      }
+    }return -1;
   },
 
   // returns an array with all elements except for the last element
-  initial: function () {
-
+  initial: function (array) {
+    var x = array.pop();
+    return array;
   },
-  
+
   // returns an array with all falsey values removed
-  compact: function() {
-
-  },
+  compact: function fal(array){
+var result = [];
+var none = [false, null, NaN, 0, ""];
+  for(var i = 0; i < array.length; i++){
+    if(!none.includes(array[i])){
+      result.push(array[i]);
+    }
+  }return result;
+},
 
   // creates a slice of an array from the start index up to but not including the end index
-  slice: function () {
-
-  },
+  slice: function slicee(array,start,end){
+  var result = [];
+  for(var i = start; i < end; i++){
+    result.push(array[i]);
+  }return result;
+},
 
   // returns a slice of array with n elements dropped from the beignning
   drop: function(){
@@ -92,7 +111,7 @@ global.bruhdash = {
 
   /*******************
    *  STRETCH GOALS! *
-   *******************/ 
+   *******************/
 
   // creates an array of grouped elements
   zip: function () {
@@ -123,7 +142,7 @@ global.bruhdash = {
 
   /*************************
    *  SUPER STRETCH GOALS!  *
-   *************************/ 
+   *************************/
 
   // iterates over elements of a collection and returns all elements that the predicate returns truthy for
   // Note: this should work for arrays and objects
@@ -135,6 +154,6 @@ global.bruhdash = {
   // in the collection through an iteratee
   // Note: this should work for arrays and objects
   reduce: function() {
-    
+
   }
 };
