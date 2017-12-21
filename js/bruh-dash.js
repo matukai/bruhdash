@@ -134,28 +134,63 @@ var none = [false, null, NaN, 0, ""];
 
   // fills elements of array with specified value from the start index
   // up to but not including the end index
-  fill: function() {
-
+  fill: function fill (array, filler, start, end) {
+    if (start === undefined) {
+        start = 0;
+        end = array.length;
+    } else {
+        start = start;
+        end = end;
+    }
+    for(var i = start; i < end; i++){
+        array[i] = filler;
+      }
+      return array;
   },
 
   // removes all given values from an array
-  pull: function () {
+  pull: function pullMe(array,value1,value2){
 
-  },
+  for(var i = 0; i < array.length; i++){
+    if(array[i] === value1){
+      array.splice([i],1);
+    }if(array[i] === value2){
+      array.splice([i],1);
+    }
+  }
+  return array;
+},
 
   // removes elements of an array corresponding to the given indices
-  pullAt: function () {
+  pullAt: function pullAt(arr,ind){
 
-  },
+  for(var i = ind.length-1; i>=0; i--){
+      arr.splice(ind[i], 1);
+    }
+    return arr;
+},
 
   // creates an array excluding all the specified values
-  without: function() {
+  without: function withOut(array,value){
 
-  },
+  var newArr = [];
+
+  for(var i = 0; i < array.length; i++){
+    if(value.indexOf(array[i])=== -1){
+      newArr.push(array[i]);
+    }
+  }return newArr;
+},
 
   // returns an array with specified values excluded
-  difference: function() {
-
+  difference: function(arr,arr2) {
+    var newArr = [];
+    for(var i = 0; i < arr2.length; i++){
+      if(arr.indexOf(arr2[i]) === -1){
+        newArr.push(arr[i]);
+      }
+    }
+    return newArr;
   },
 
   /*******************
